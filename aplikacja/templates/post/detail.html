@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{ note.title }}  {% endblock %}
+{% block content %}
+    <div class="notatniki">
+        <h1>{{ note.title }} </h1>
+
+        <div id="text-notatki">
+            <p class="date" id="">
+                Napisany {{ note.publish }} <br>
+                Autor: {{ note.author }} <br>
+                Status: {{ note.status }}
+            </p>
+            <p id="text">{{ note.body|linebreaks }}</p>
+
+        </div>
+    <a class="create" href="{% url 'aplikacja:edit_note' note_id=note.id %}">Edytuj notatkę</a>
+    </div>
+
+
+
+{% endblock %}

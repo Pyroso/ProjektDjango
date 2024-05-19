@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Notatki{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Notatka</h1>
+        {% for note in notes %}
+            <div class="note my-4 p-3 border rounded" id="Notatka">
+                    <a href="{{ note.get_absolute_url }}" >
+                        <h2>{{ note.title }}</h2>
+                    </a>
+                <p class="date text-muted">
+                     {% if note.status == "wazne" %}
+                         Napisana {{ note.publish }}, Autor: {{ note.author }}, Status: <span style = "color: white;">{{ note.status }}</span>
+                    {% endif %}
+
+
+                {% if note.status == "mniejwazne" %}
+                     Napisana {{ note.publish }}, Autor: {{ note.author }}, Status: <span style = "color:black;">{{ note.status }}</span>
+                    {% endif %}
+                </p>
+                <p class="note-body">
+                    {{ note.body|truncatewords:30|linebreaks }}
+                </p>
+            </div>
+        {% endfor %}
+        <nav aria-label="Page navigation">
+            {% include "pagination.html" with page=page_obj %}
+        </nav>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div id="content" class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div id="sidebar" class="col-md-4">
+                <div class="back">
+                     <h2>Notatki</h2>
+                </div>
+                <a class="create" href="/note/create">Stworz Notatke</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
