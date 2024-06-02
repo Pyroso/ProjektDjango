@@ -10,13 +10,13 @@
                         <h2>{{ note.title }}</h2>
                     </a>
                 <p class="date text-muted">
-                     {% if note.status == "wazne" %}
-                         Napisana {{ note.publish }}, Autor: {{ note.author }}, Status: <span style = "color: white;">{{ note.status }}</span>
+
+                    {% if note.status == "wazne" %}
+                         Napisana {{ note.publish }}, Autor: {{ note.author }}, Status: <span style = "color: red;">{{ note.status }}</span>
                     {% endif %}
 
-
                 {% if note.status == "mniejwazne" %}
-                     Napisana {{ note.publish }}, Autor: {{ note.author }}, Status: <span style = "color:black;">{{ note.status }}</span>
+                     Napisana {{ note.publish }}, Autor: {{ note.author }}, Status: <span style = "color:green;">{{ note.status }}</span>
                     {% endif %}
                 </p>
                 <p class="note-body">

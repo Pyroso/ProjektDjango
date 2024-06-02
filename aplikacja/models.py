@@ -5,13 +5,9 @@ from django.contrib.auth.models import User
 
 
 class Notatka(models.Model):
-    Signiface = (
-        ('mniejwazne', 'Mniejwazne'),
-        ('wazne','Wazne')
-    )
     STATUS_CHOICES = (
         ('mniejwazne', 'Mniejwazne'),
-        ('wazne', 'Wazne')
+        ('wazne', 'Wazne'),
     )
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User,
@@ -29,6 +25,7 @@ class Notatka(models.Model):
                        args=[self.publish.year,
                              self.publish.month,
                              self.publish.day,
+                             self.pk
                             ])
 
 class Meta:
